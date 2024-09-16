@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CameraViewRapidShootCrash"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="CameraViewRapidShootCrash.MainPage"
+    x:DataType="local:MainPage">
+
+    <Grid
+        RowDefinitions="3*,Auto,*"
+        ColumnDefinitions="*,*"
+        Padding="16"
+        RowSpacing="16">
+
+        <toolkit:CameraView
+            x:Name="Camera"
+            Grid.Row="0" />
+
+        <Image
+            x:Name="CapturedImage"
+            Grid.Row="0"
+            Grid.Column="1" />
+
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Take photo"
+            HorizontalOptions="Center"
+            Clicked="Button_Clicked" />
+
+        <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="Next camera"
+            HorizontalOptions="Center"
+            Clicked="NextCamera_Clicked" />
+
+        <ScrollView 
+            Grid.Row="2"
+            Grid.ColumnSpan="2">
+            <Label x:Name="ErrorsLabel" />
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
