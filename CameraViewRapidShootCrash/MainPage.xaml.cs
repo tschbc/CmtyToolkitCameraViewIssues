@@ -28,6 +28,7 @@ namespace CameraViewRapidShootCrash
             {
                 cameras = await Camera.GetAvailableCameras(CancellationToken.None);
                 await Camera.StartCameraPreview(CancellationToken.None);
+                ShowDebugText("Camera preview started");
             }
             catch (Exception ex)
             {
@@ -42,7 +43,14 @@ namespace CameraViewRapidShootCrash
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Camera.CaptureImage(CancellationToken.None);
+            try
+            {
+                await Camera.CaptureImage(CancellationToken.None);
+            }
+            catch (Exception ex)
+            {
+                ShowDebugText($"{ex.GetType().Name}: {ex.Message}");
+            }
         }
 
         private void NextCamera_Clicked(object sender, EventArgs e)
