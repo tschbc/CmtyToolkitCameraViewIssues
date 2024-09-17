@@ -39,7 +39,7 @@
         <ScrollView 
             Grid.Row="2"
             Grid.ColumnSpan="2">
-            <Label x:Name="ErrorsLabel" />
+            <Label x:Name="DebugLabel" />
         </ScrollView>
     </Grid>
 

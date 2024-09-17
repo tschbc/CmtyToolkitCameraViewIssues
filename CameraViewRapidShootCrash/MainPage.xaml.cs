@@ -31,13 +31,13 @@ namespace CameraViewRapidShootCrash
             }
             catch (Exception ex)
             {
-                ShowErrorText($"{ex.GetType().Name}: {ex.Message}");
+                ShowDebugText($"{ex.GetType().Name}: {ex.Message}");
             }
         }
 
-        void ShowErrorText(string message, [CallerMemberName] string memberName = "")
+        void ShowDebugText(string message, [CallerMemberName] string memberName = "")
         {
-            ErrorsLabel.Text += $"{memberName}.{message}\n";
+            DebugLabel.Text += $"{memberName}.{message}\n";
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace CameraViewRapidShootCrash
 
         private void Camera_MediaCaptureFailed(object? sender, MediaCaptureFailedEventArgs e)
         {
-            ShowErrorText($"Camera_MediaCaptureFailed: {e.FailureReason}");
+            ShowDebugText($"Camera_MediaCaptureFailed: {e.FailureReason}");
         }
     }
 }
